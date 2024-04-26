@@ -7,7 +7,7 @@ GUILD={'PRf0 Academy'}
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='/', intents=intents)
 
 @bot.event
 async def on_ready():
@@ -21,6 +21,26 @@ async def on_ready():
     )
 
 
-bot.run(TOKEN)
 
+
+@bot.command(name= 'title')
+async def title(ctx, str, kd:str, x:int, y:int)
+    if str=='duke':
+        await ctx.send('You were added  to the waitlist for Duke')
+    
+    elif str=='justice':
+        await  ctx.send("You were added to the waitlist  for Justice")
+    
+    elif str=='architect':
+        await  ctx.send("You were added to the waitlist  for Architect")
+        return
+    
+    elif str=='scientist':
+        await  ctx.send('You were added to the waitlist  for Scientist')
+        return
+    
+    else :
+        await ctx.send('Please give a valid title')
+
+bot.run(TOKEN)
 
