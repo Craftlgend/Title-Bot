@@ -24,19 +24,21 @@ async def on_ready():
 
 
 @bot.command(name= 'title')
-async def title(ctx, str, kd:str, x:int, y:int)
+async def title(ctx, str, kd:str, x:int, y:int):
     if str=='duke':
-        await ctx.send('You were added  to the waitlist for Duke')
+        await ctx.send('Wait, we are checking the given position...')
+        return
     
     elif str=='justice':
-        await  ctx.send("You were added to the waitlist  for Justice")
+        await ctx.send('Wait, we are checking the given position...')
+        return
     
     elif str=='architect':
-        await  ctx.send("You were added to the waitlist  for Architect")
+        await ctx.send('Wait, we are checking the given position...')
         return
     
     elif str=='scientist':
-        await  ctx.send('You were added to the waitlist  for Scientist')
+        await ctx.send('Wait, we are checking the given position...')
         return
     
     else :
