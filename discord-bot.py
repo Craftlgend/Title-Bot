@@ -42,7 +42,14 @@ async def title(ctx, str, kd:str, x:int, y:int):
         return
     
     else :
-        await ctx.send('Please give a valid title')
+        await ctx.send('Please give a valid title. Type /help for mor information')
+        return
+    
+@bot.command(name='hlp')
+async def hlp(ctx):
+    await ctx.send('To get a title, type the following command:\n /title (duke, justice, architect or scientist) (Lost Kingdom=lk, Home Kingdom=hk) x-coordinate, y-coordinate')
+    return
+
 
 bot.run(TOKEN)
 
