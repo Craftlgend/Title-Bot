@@ -28,6 +28,7 @@ async def on_ready():
 async def title(ctx, str, kd:str, x:int, y:int):
     if str=='duke':
         await ctx.send('Wait, we are checking the given position...')
+        print (ctx.author.id)
         return
     
     elif str=='justice':
@@ -50,6 +51,9 @@ async def title(ctx, str, kd:str, x:int, y:int):
 async def hlp(ctx):
     await ctx.send('To get a title, type the following command:\n /title (duke, justice, architect or scientist) (Lost Kingdom=lk, Home Kingdom=hk) x-coordinate, y-coordinate')
     return
+
+
+
 
 
 bot.run(TOKEN)
