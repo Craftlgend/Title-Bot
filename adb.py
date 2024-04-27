@@ -17,6 +17,10 @@ devices = client.devices()
 device = devices[0]
 print (device)
 
-device.shell(f'input touchscreen tap {int(x)} {int(y)}')
-time.sleep(30)
+def tap(x, y):
+    device.shell(f'input touchscreen tap {int(x)} {int(y)}')
+
+
+def key(str):
+
 #subprocess.run("adb kill-server", stdout=subprocess.PIPE, shell=True)

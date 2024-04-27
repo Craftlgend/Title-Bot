@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import duke
 
 TOKEN = ('MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk')
 GUILD={'PRf0 Academy'}
@@ -27,6 +28,7 @@ async def on_ready():
 async def title(ctx, str, kd:str, x:int, y:int):
     if str=='duke':
         await ctx.send('Wait, we are checking the given position...')
+        duke.run()
         return
     
     elif str=='justice':
