@@ -1,6 +1,7 @@
 import time
 import adb
 import cv2
+import discord_bot.py
 
 #Check if player is in database
 
@@ -13,7 +14,7 @@ y = 896
 
 
 adb.tap(x, y)
-
+if 
 
 
 

@@ -22,5 +22,6 @@ def tap(x, y):
 
 
 def key(str):
+    device.shell(f'input keyevent "{str}"')
 
 #subprocess.run("adb kill-server", stdout=subprocess.PIPE, shell=True)

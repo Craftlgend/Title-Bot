@@ -28,7 +28,6 @@ async def on_ready():
 async def title(ctx, str, kd:str, x:int, y:int):
     if str=='duke':
         await ctx.send('Wait, we are checking the given position...')
-        duke.run()
         return
     
     elif str=='justice':
