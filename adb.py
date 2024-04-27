@@ -18,5 +18,5 @@ device = devices[0]
 print (device)
 
 device.shell(f'input touchscreen tap {int(x)} {int(y)}')
-time.sleep(10)
-subprocess.run("adb kill-server", stdout=subprocess.PIPE, shell=True)
+time.sleep(30)
+#subprocess.run("adb kill-server", stdout=subprocess.PIPE, shell=True)
