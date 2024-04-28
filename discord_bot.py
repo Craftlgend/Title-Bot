@@ -79,6 +79,7 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
     session.commit()
 
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
+    print (player.x_coord)
 
 
 
