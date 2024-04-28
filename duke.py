@@ -1,19 +1,25 @@
 import time
-import adb
+#import adb
 import cv2
-#from discord_bot import *
-
-#Check if player is in database
+from Discord_Bot_Database import Player, session
 
 
-#choose fist player
-#temporary cords:
+
+duke = ('duke')
+
+
 x = 75
 y = 896
 
+next_player = session.query(Player).filter_by(title = duke).first()
+print (next_player)
 
+#adb.tap(x, y)
+#duke_active
+time.sleep(10)
+duke_active = 0
 
-adb.tap(x, y)
+    
 
 
 
