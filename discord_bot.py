@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from database import Player, session
+import adb
 
 import traceback
 import sys
@@ -81,7 +82,7 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
     print (player.x_coord)
 
-
+adb.tap(700, 350)
 
 
 bot.run(TOKEN)
