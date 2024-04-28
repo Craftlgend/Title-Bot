@@ -1,7 +1,7 @@
 import time
 #import adb
 import cv2
-from Discord_Bot_Database import Player, session
+from database import Player, session
 
 
 
