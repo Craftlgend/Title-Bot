@@ -90,7 +90,7 @@ async def stop(ctx):
     if  ctx.author.id == (993823133691809822):
         print('stop')
         adb.stop
-        #sys. exit()
+        sys. exit()
 
     else:
         await ctx.send("You don't have permission to do that.")
