@@ -1,5 +1,5 @@
 import time
-#import adb
+import adb
 import cv2
 from database import Player, session
 
@@ -13,7 +13,7 @@ y = 896
 
 next_player = session.query(Player).filter_by(title = duke).first()
 print (next_player)
-
+adb.tap(700, 350)
 #adb.tap(x, y)
 #duke_active
 time.sleep(10)

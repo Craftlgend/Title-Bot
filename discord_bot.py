@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 from database import Player, session
 import adb
-
 import traceback
 import sys
+
 
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
 GUILD = 'PRf0 Academy'
@@ -64,6 +64,7 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
         player.y_coord = y
         player.kingdom_type = kingdom_type
         player.title = title_str.title()  # Capitalize the first letter
+        
     else:
         # If the player doesn't exist, create a new record
         new_player = Player(
@@ -81,6 +82,18 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
 
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
     print (player.x_coord)
+
+
+@bot.command(name='stop')
+async def stop(ctx):
+    print(str(ctx.author.id))
+    if  ctx.author.id == (993823133691809822):
+        print('stop')
+        adb.stop
+        #sys. exit()
+
+    else:
+        await ctx.send("You don't have permission to do that.")
 
 adb.tap(700, 350)
 
