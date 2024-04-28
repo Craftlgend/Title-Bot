@@ -3,8 +3,10 @@ from discord.ext import commands
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import traceback
+import sys
 
-TOKEN = 'TOKEN'
+TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
 GUILD = 'PRf0 Academy'
 
 #The databasee setup is here
@@ -28,7 +30,28 @@ class Player(Base):
 # Discord bot setup
 intents = discord.Intents.default()
 intents.message_content = True
+
+
+
+
+#error-handling
+async def on_command_error(ctx, error):
+    # Handle your errors here
+    if title(error):
+        print ('error')
+        return
+
+    else:
+        # All unhandled errors will print their original traceback
+        print ('error')
+        return
+
+
+
+
+
 bot = commands.Bot(command_prefix='/', intents=intents)
+bot.on_command_error = on_command_error
 
 @bot.event
 async def on_ready():
@@ -73,5 +96,8 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
     session.commit()
 
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
+
+
+Base.metadata.create_all(engine)
 
 bot.run(TOKEN)
