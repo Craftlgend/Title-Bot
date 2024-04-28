@@ -38,7 +38,7 @@ intents.message_content = True
 async def on_command_error(ctx, error):
     # Handle your errors here
     if title(error):
-        print ('error')
+        await ctx.send('Please type the command correctly. Type /help for more information.')
         return
 
     else:
