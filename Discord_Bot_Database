@@ -1,0 +1,77 @@
+import discord
+from discord.ext import commands
+from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+TOKEN = 'TOKEN'
+GUILD = 'PRf0 Academy'
+
+#The databasee setup is here
+engine = create_engine('sqlite:///player_data.db')  # SQLite database file
+Session = sessionmaker(bind=engine)
+session = Session()
+Base = declarative_base()
+
+# Defining of the model meaning the stucture of the DB
+class Player(Base):
+    __tablename__ = 'players'
+
+    id = Column(Integer, primary_key=True)
+    discord_id = Column(String)
+    discord_name = Column(String)
+    x_coord = Column(Integer)
+    y_coord = Column(Integer)
+    kingdom_type = Column(String)
+    title = Column(String)
+
+# Discord bot setup
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='/', intents=intents)
+
+@bot.event
+async def on_ready():
+    for guild in bot.guilds:
+        if guild.name == GUILD:
+            break
+
+    print(
+        f'{bot.user} is connected to the following guild:\n'
+        f'{guild.name}(id: {guild.id})'
+    )
+
+@bot.command(name='title')
+async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
+    valid_titles = ['duke', 'justice', 'architect', 'scientist']
+    if title_str.lower() not in valid_titles:
+        await ctx.send('Please provide a valid title. Type /hlp for more information.')
+        return
+
+    # Check if the player exists in the database
+    player = session.query(Player).filter_by(discord_id=str(ctx.author.id)).first()
+    if player:
+        # If the player exists, update their data
+        player.discord_name = str(ctx.author)
+        player.x_coord = x
+        player.y_coord = y
+        player.kingdom_type = kingdom_type
+        player.title = title_str.title()  # Capitalize the first letter
+    else:
+        # If the player doesn't exist, create a new record
+        new_player = Player(
+            discord_id=str(ctx.author.id),
+            discord_name=str(ctx.author),
+            x_coord=x,
+            y_coord=y,
+            kingdom_type=kingdom_type,
+            title=title_str.title()
+        )
+        session.add(new_player)
+    
+    # Commit changes to the database
+    session.commit()
+
+    await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
+
+bot.run(TOKEN)
