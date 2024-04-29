@@ -7,6 +7,7 @@ import sys
 
 
 
+
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
 GUILD = 'PRf0 Academy'
 
@@ -80,6 +81,7 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
     
     # Commit changes to the database
     session.commit()
+    print ('Successfully added to database')
 
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
 
