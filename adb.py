@@ -6,8 +6,7 @@ import os
 
 
 subprocess.run('adb start-server', stdout=subprocess.PIPE, shell=True)
-x = 650
-y = 350
+
 
 client = Client(host='127.0.0.1' , port=5037)
 client.remote_connect('127.0.0.1', 5725)
@@ -21,8 +20,13 @@ def tap(x, y):
     device.shell(f'input touchscreen tap {int(x)} {int(y)}')
 
 
-def key(str):
-    device.shell(f'input keyevent "{str}"')
+def input(str):
+    device.shell(f'input text "{str}"')
+
+
+def screenshot():
+    subprocess.run('adb exec-out screencap -p > screenshot.png', stdout=subprocess.PIPE, shell=True)
+    
 
 
 def stop():

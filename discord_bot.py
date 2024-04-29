@@ -22,7 +22,7 @@ intents.message_content = True
 async def on_command_error(ctx, error):
     # Handle your errors here
     if title(error):
-        await ctx.send('Please type the command correctly. Type /help for more information.')
+        await ctx.send('Please type the command correctly. Type /hlp for more information.')
         return
 
     else:
@@ -81,7 +81,6 @@ async def title(ctx, title_str: str, kingdom_type: str, x: int, y: int):
     session.commit()
 
     await ctx.send(f"Title '{title_str.title()}' assigned to {ctx.author.display_name} at coordinates ({x}, {y}) in the {kingdom_type} kingdom.")
-    print (player.x_coord)
 
 
 @bot.command(name='stop')
@@ -90,6 +89,7 @@ async def stop(ctx):
     if  ctx.author.id == (993823133691809822):
         print('stop')
         adb.stop
+        
         sys. exit()
 
     else:

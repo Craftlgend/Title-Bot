@@ -11,11 +11,11 @@ method = cv2.TM_SQDIFF
 
 template = cv2.imread('template.png')
 
-duke = ('duke')
+scientist = ('scientist')
 
 def run():
     print ('start')
-    next_player = session.query(Player).filter_by(title = duke).order_by(Player.id).first()
+    next_player = session.query(Player).filter_by(title = scientist).order_by(Player.id).first()
     if next_player == None:
         exit
     else:
@@ -57,7 +57,7 @@ def run():
         print (press_x, press_y)
         adb.tap(press_x, press_y)
         time.sleep(.8)
-        adb.tap(520, 395)
+        adb.tap(982, 395)
         os.remove('screenshot.png')
         timer()
         session.delete(next_player)
