@@ -27,3 +27,13 @@ class Player(Base):
 
 
     Base.metadata.create_all(engine)
+
+
+def check_database_has_entries():
+    count = session.query(Player).count()
+    if count > 0:
+        print("The database has entries.")
+        return True
+    else:
+        print("The database is empty.")
+        return False

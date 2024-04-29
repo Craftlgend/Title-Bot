@@ -5,8 +5,9 @@ import subprocess
 import os
 
 
-subprocess.run('adb start-server', stdout=subprocess.PIPE, shell=True)
 
+subprocess.run('adb start-server', stdout=subprocess.PIPE, shell=True)
+subprocess.run('python timing.py', stdout=subprocess.PIPE, shell=True)
 
 client = Client(host='127.0.0.1' , port=5037)
 client.remote_connect('127.0.0.1', 5725)

@@ -4,7 +4,7 @@ from database import Player, session
 import adb
 import traceback
 import sys
-import timing
+
 
 
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
@@ -16,7 +16,7 @@ GUILD = 'PRf0 Academy'
 intents = discord.Intents.default()
 intents.message_content = True
 
-timing.run()
+
 
 
 #error-handling
@@ -96,7 +96,7 @@ async def stop(ctx):
     else:
         await ctx.send("You don't have permission to do that.")
 
-adb.tap(700, 350)
+
 
 
 bot.run(TOKEN)
