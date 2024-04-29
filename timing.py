@@ -5,9 +5,14 @@ import scientist
 import justice
 
 
-duke.run()
-time.sleep(5)
-justice.run()
-time.sleep(5)
-scientist.run()
-time.sleep(5)
+on = ('')
+async def run():
+    for
+        duke.run()
+        time.sleep(5)
+        justice.run()
+        time.sleep(5)
+        scientist.run()
+        time.sleep(5)
+    else:
+        quit
