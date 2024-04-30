@@ -7,7 +7,7 @@ from database import check_database_has_entries
 from running_script import check_script_running
 
 i = 0
-players = check_database_has_entries
+players = check_database_has_entries()
 print (players)
 while i < 6:
     
