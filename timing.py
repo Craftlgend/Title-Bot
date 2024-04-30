@@ -4,23 +4,25 @@ import scientist
 import justice
 import architect
 from database import check_database_has_entries
+from database import first_player_title
 from running_script import check_script_running
 
 i = 0
-players = check_database_has_entries()
-print (players)
+
+
 while i < 6:
-    
+    players = check_database_has_entries()
+    print (players)
     if players == True:
-        if check_script_running('duke') == False:
+        if first_player_title() == 'duke':
               duke.run()
               print("Duke is now running")
 
-        elif check_script_running('scientist') == False:
+        elif first_player_title() == 'scientist':
               scientist.run()
               print("Scientist is now running")
 
-        elif check_script_running('justice') ==  False:
+        elif first_player_title() ==  'justice':
                justice.run()
                print("Justice is now running")
 
@@ -30,6 +32,6 @@ while i < 6:
     else:
           print ('repeating....')
           print(players)
-          time.sleep(15) #wait
+          time.sleep(10)
 
 

@@ -3,7 +3,6 @@ import adb
 import cv2
 from database import Player, session
 import os
-from timer import timer
 
 
 #picture recognition
@@ -11,7 +10,7 @@ method = cv2.TM_SQDIFF
 
 template = cv2.imread('template.png')
 
-architect = ('architect')
+architect = ('Architect')
 
 def run():
     print ('start')
@@ -31,8 +30,7 @@ def run():
             time.sleep(.8)
             adb.tap(450, 150)
 
-        else :
-            return
+
         
         adb.tap(640, 140)
         time.sleep(.8)
@@ -47,6 +45,7 @@ def run():
         adb.tap(885, 140)
         time.sleep(.9)
         adb.tap(640, 360)
+        time.sleep(1)
         adb.screenshot()
         time.sleep(1)
         screenshot = cv2.imread('screenshot.png')
@@ -58,6 +57,13 @@ def run():
         adb.tap(press_x, press_y)
         time.sleep(.8)
         adb.tap(755, 395)
+        time.sleep(.8)
+        adb.tap(643, 634)
         os.remove('screenshot.png')
-        timer()
         session.delete(next_player)
+        session.commit()
+        timer()
+
+
+async def timer():
+    time.sleep(90)

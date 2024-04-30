@@ -6,10 +6,8 @@ import traceback
 import sys
 
 
-
-
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
-GUILD = 'PRf0 Academy'
+GUILD = '𝑲𝑰𝑵𝑮𝑫𝑶𝑴 3368'
 
 
 
