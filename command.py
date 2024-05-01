@@ -69,7 +69,3 @@ headers = {
 }
 
 r = requests.delete(url, headers=headers, json=json)
-
-
-
-ctx, title_str: str, kingdom_type: str, x: int, y: int
