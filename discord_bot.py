@@ -14,6 +14,8 @@ GUILD = '𝑲𝑰𝑵𝑮𝑫𝑶𝑴 3368'
 # Discord bot setup
 intents = discord.Intents.default()
 intents.message_content = True
+bot = commands.Bot(command_prefix='/', intents=intents)
+
 
 
 
@@ -32,10 +34,9 @@ async def on_command_error(ctx, error):
 
 
 
-
-
-bot = commands.Bot(command_prefix='/', intents=intents)
 bot.on_command_error = on_command_error
+
+
 
 @bot.event
 async def on_ready():
