@@ -1,5 +1,6 @@
 from interactions import Client, Intents, OptionType, SlashContext, SlashCommandChoice, slash_option, slash_command
 from database import Player, session
+import main_algorythm
 
 
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
@@ -85,7 +86,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     # Commit changes to the database
     session.commit()
     print ('Successfully added to database')
-    
+
 
     await ctx.send(f"Title '{title.title()}' assigned to {ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
 
