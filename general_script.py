@@ -29,7 +29,7 @@ def run(requested_title):
         if kingdom_type == 'lk':
             adb.tap(450, 150)
             time.sleep(.8)
-            adb.input(str("#211"))
+            adb.input(str("#21161"))
             adb.tap(450, 150)
 
 
