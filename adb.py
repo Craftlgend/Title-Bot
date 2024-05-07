@@ -5,7 +5,7 @@ import subprocess
 subprocess.run('adb start-server', stdout=subprocess.PIPE, shell=True)
 
 client = Client(host='127.0.0.1' , port=5037)
-client.remote_connect('127.0.0.1', 5725)
+client.remote_connect('127.0.0.1', 5555)
 devices = client.devices()
 
 #device = client.device("127.0.0.1:5725")
