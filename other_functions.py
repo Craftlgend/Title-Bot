@@ -1,6 +1,11 @@
 from database import first_player_title
 from adb import tap
 from time import sleep
+import cv2
+
+method = cv2.TM_SQDIFF
+
+
 
 def press_title():
         title_requested = first_player_title()
@@ -23,3 +28,10 @@ def lk(kingdom_type):
         input(str("#21161"))
         sleep(.8)
         tap(450, 150)
+
+#picture recognition
+def picture_recognition(template, picture):
+        screenshot = cv2.imread(picture)
+        result = cv2.matchTemplate(screenshot, template, method)
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+        return min_loc
