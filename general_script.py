@@ -1,9 +1,10 @@
-from variables import duke_variables as dv
-import time
-import adb
+from ot
+from time import sleep
+from adb import tap, screenshot, input
 import cv2
 from database import Player, session
 import os
+
 
 
 #picture recognition
@@ -24,43 +25,43 @@ def run(requested_title):
         y_coord = next_player.y_coord
         kingdom_type = next_player.kingdom_type
 
-        adb.tap(400, 20)
-        time.sleep(.8)
+        tap(400, 20)
+        sleep(.8)
         if kingdom_type == 'lk':
-            adb.tap(450, 150)
-            time.sleep(.8)
-            adb.input(str("#21161"))
-            adb.tap(450, 150)
-
-
-        
-        adb.tap(640, 140)
-        time.sleep(.8)
-        adb.input(str(x_coord))
-        adb.tap(790, 140)
-        time.sleep(.3)
-        adb.tap(790, 140)
-        time.sleep(.8)
-        adb.input(str(y_coord))
-        time.sleep(.3)
-        adb.tap(885, 140)
-        adb.tap(885, 140)
-        time.sleep(.9)
-        adb.tap(640, 360)
-        time.sleep(1)
-        adb.screenshot()
-        time.sleep(1)
+            tap(450, 150)
+            sleep(.8)
+            input(str("#21161"))
+            sleep(.8)
+            tap(450, 150)
+  
+        tap(640, 140)
+        sleep(.8)
+        input(str(x_coord))
+        tap(790, 140)
+        sleep(.3)
+        tap(790, 140)
+        sleep(.8)
+        input(str(y_coord))
+        sleep(.3)
+        tap(885, 140)
+        tap(885, 140)
+        sleep(.9)
+        tap(640, 360)
+        sleep(1)
+        screenshot()
+        sleep(1)
         screenshot = cv2.imread('screenshot.png')
         result = cv2.matchTemplate(screenshot, template, method)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
         press_x =(min_loc[0]+20)
         press_y = (min_loc[1]+20)
         print (press_x, press_y)
-        adb.tap(press_x, press_y)
-        time.sleep(.8)
-        adb.tap(520, 395)
-        time.sleep(.8)
-        adb.tap(643, 634)
+        tap(press_x, press_y)
+        sleep(.8)
+        
+        tap(520, 395)
+        sleep(.8)
+        tap(643, 634)
         os.remove('screenshot.png')
         session.delete(next_player)
         session.commit()
@@ -69,4 +70,4 @@ def run(requested_title):
 
 
 async def timer():
-    time.sleep(90)
+    sleep(90)
