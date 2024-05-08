@@ -10,7 +10,6 @@ template = cv2.imread('template.png')
 
 
 def run(requested_title):
-    print ('start')
     next_player = session.query(Player).filter_by(title = requested_title).order_by(Player.id).first()
     if next_player == None:
         exit
@@ -43,19 +42,12 @@ def run(requested_title):
         coords = picture_recognition(template, 'screenshot.png')  #recognize the title-icon
         press_x =(coords[0]+20)
         press_y = (coords[1]+20)
-        print (press_x, press_y)
-        tap(press_x, press_y)
+        tap(press_x, press_y)  #press on title-icon
         sleep(.8)
-        
-        tap(520, 395)
+        press_title(next_player.title)   #press on correct title
         sleep(.8)
-        tap(643, 634)
-        os.remove('screenshot.png')
-        session.delete(next_player)
-        session.commit()
-        timer()
-        
-
-
-async def timer():
-    sleep(90)
+        tap(643, 634)    #submit the requested title
+        os.remove('screenshot.png')   #delete the screenshop
+        session.delete(next_player)  #delete player from waitlist
+        session.commit()  #submit to database
+        #asyncron task

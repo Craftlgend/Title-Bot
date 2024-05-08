@@ -3,6 +3,7 @@ from database import Player, session
 import main_algorythm
 
 
+
 TOKEN = 'MTIzMjc2MTkxNzYyNjM4ODcyMg.G7BEBt.k4fjN3--Ho04RI7h-SRHVhplnego3tpb6OFFTk'
 
 
@@ -93,3 +94,5 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
 
 
 bot.start(TOKEN)
+
+

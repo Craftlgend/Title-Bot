@@ -7,16 +7,15 @@ method = cv2.TM_SQDIFF
 
 
 
-def press_title():
-        title_requested = first_player_title()
-        print (title_requested)
-        if title_requested == "duke":
+def press_title(requested_title):
+        print (requested_title)
+        if requested_title == "duke":
             tap(520, 395)
-        elif title_requested == "architect":
+        elif requested_title == "architect":
             tap(755, 395)
-        elif title_requested == "justice":
+        elif requested_title == "justice":
             tap(295, 395)
-        elif title_requested == "scientist":
+        elif requested_title == "scientist":
             tap(982, 395)
         else:
             print("Error")
