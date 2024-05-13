@@ -11,11 +11,11 @@ method = cv2.TM_SQDIFF
 
 template = cv2.imread('template.png')
 
-duke = ('Duke')
+Duke = ('Duke')
 
 def run():
     print ('start')
-    next_player = session.query(Player).filter_by(title = duke).order_by(Player.id).first()
+    next_player = session.query(Player).filter_by(title = Duke).order_by(Player.id).first()
     if next_player == None:
         exit
     else:

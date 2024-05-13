@@ -10,11 +10,11 @@ method = cv2.TM_SQDIFF
 
 template = cv2.imread('template.png')
 
-architect = ('Architect')
+Architect = ('Architect')
 
 def run():
     print ('start')
-    next_player = session.query(Player).filter_by(title = architect).order_by(Player.id).first()
+    next_player = session.query(Player).filter_by(title = Architect).order_by(Player.id).first()
     if next_player == None:
         exit
     else:

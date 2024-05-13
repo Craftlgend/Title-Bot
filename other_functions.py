@@ -32,32 +32,32 @@ def lk(kingdom_type):
 #starts the timers for the titles
 def timer(requested_title):
         if requested_title == "Duke":
-            Thread(target= duke).start()
+            Thread(target= Duke).start()
         elif requested_title == "Architect":
-            Thread(target= architect).start()
+            Thread(target= Architect).start()
         elif requested_title == "Justice":
-            Thread(target= justice).start()
+            Thread(target= Justice).start()
         elif requested_title == "Scientist":
-            Thread(target= scientist).start()
+            Thread(target= Scientist).start()
         else:
             print("Error")     
 
-def duke():
-     open("duke.pid", "x")
+def Duke():
+     open("Duke.pid", "x")
      sleep(90)
-     remove("duke.pid")
-def architect():
-     open("architect.pid", "x")
+     remove("Duke.pid")
+def Architect():
+     open("Architect.pid", "x")
      sleep(90)
-     remove("architect.pid")
-def justice():
-     open("justice.pid", "x")
+     remove("Architect.pid")
+def Justice():
+     open("Justice.pid", "x")
      sleep(90)
-     remove("justice.pid")
-def scientist():
-     open("scientist.pid", "x")
+     remove("Justice.pid")
+def Scientist():
+     open("Scientist.pid", "x")
      sleep(90)
-     remove("scientist.pid")
+     remove("Scientist.pid")
      
 #picture recognition
 def picture_recognition(template, picture):

@@ -33,10 +33,10 @@ bot.on_command_error = on_command_error
     required=True,
     opt_type=OptionType.STRING,
     choices=[
-        SlashCommandChoice(name="duke", value='duke'),
-        SlashCommandChoice(name="scientist", value='scientist'),
-        SlashCommandChoice(name="architect", value="architect"),
-        SlashCommandChoice(name="justice", value="justice")
+        SlashCommandChoice(name="Duke", value='Duke'),
+        SlashCommandChoice(name="Scientist", value='Scientist'),
+        SlashCommandChoice(name="Architect", value="Architect"),
+        SlashCommandChoice(name="Justice", value="Justice")
     ]
 )
 @slash_option(
