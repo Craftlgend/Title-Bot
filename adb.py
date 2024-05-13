@@ -1,8 +1,8 @@
 from ppadb.client import Client
-import subprocess
+from subprocess import run, PIPE
 
 
-subprocess.run('adb start-server', stdout=subprocess.PIPE, shell=True)
+run('adb start-server', stdout=PIPE, shell=True)
 
 client = Client(host='127.0.0.1' , port=5037)
 client.remote_connect('127.0.0.1', 5555)
@@ -21,9 +21,9 @@ def input(str):
 
 
 def screenshot():
-    subprocess.run('adb exec-out screencap -p > screenshot.png', stdout=subprocess.PIPE, shell=True)
+    run('adb exec-out screencap -p > screenshot.png', stdout=PIPE, shell=True)
     
 
 
 def stop():
-    subprocess.run("adb kill-server", stdout=subprocess.PIPE, shell=True)
+    run("adb kill-server", stdout=PIPE, shell=True)
