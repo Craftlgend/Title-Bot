@@ -1,17 +1,19 @@
-from database import first_player_title, check_database_has_entries
+from database import check_database_has_entries
+from os import path
+import general_script
+from time import sleep
 
 
 async def main_algorythm():
     while check_database_has_entries() == True:
-        title_requested = first_player_title()
-        print (title_requested)
-        if title_requested == "duke":
-            print ("duke was requested")
-        elif title_requested == "architect":
-            print ("architect was requested")
-        elif title_requested == "justice":
-            print ("justice was requested")
-        elif title_requested == "scientist":
-            print ()
+        if path.isfile("duke.pid") == False:
+            general_script.run("Duke")
+        elif path.isfile("architect.pid") == False:
+            general_script.run("Architect")
+        elif path.isfile("justice.pid") == False:
+            general_script.run("Justice")
+        elif path.isfile("scientist.pid") == False:
+            general_script.run("Scientist")
         else:
-            print("Error")
+            print("All titles are running, please wait...")
+            sleep(10)

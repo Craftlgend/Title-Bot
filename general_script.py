@@ -1,11 +1,11 @@
-from other_functions import lk, press_title, picture_recognition
+from other_functions import lk, press_title, picture_recognition, timer
 from time import sleep
 from adb import tap, screenshot, input
-import cv2
+from cv2 import imread
 from database import Player, session
-import os
+from os import remove
 
-template = cv2.imread('template.png')
+template = imread('template.png')
 
 
 
@@ -47,7 +47,7 @@ def run(requested_title):
         press_title(next_player.title)   #press on correct title
         sleep(.8)
         tap(643, 634)    #submit the requested title
-        os.remove('screenshot.png')   #delete the screenshop
+        remove('screenshot.png')   #delete the screenshop
         session.delete(next_player)  #delete player from waitlist
         session.commit()  #submit to database
-        #asyncron task
+        timer(requested_title)

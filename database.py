@@ -37,13 +37,3 @@ def check_database_has_entries():
     else:
         print("The database is empty.")
         return False
-    
-def first_player_title():
-    if session.query(Player).filter_by(title = 'Duke').order_by(Player.id).first() is not None:
-        return 'duke'
-    elif session.query(Player).filter_by(title = 'Architect').order_by(Player.id).first() is not None:
-        return 'architect'
-    elif session.query(Player).filter_by(title = 'Scientist').order_by(Player.id).first() is not None:
-        return 'scientist'
-    else:
-        return 'justice'

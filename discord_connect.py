@@ -87,10 +87,8 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     # Commit changes to the database
     session.commit()
     print ('Successfully added to database')
+    await ctx.send(f"Title '{title.title()}' assigned to @{ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
     main_algorythm.main_algorythm()
-
-
-    await ctx.send(f"Title '{title.title()}' assigned to {ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
 
 
 bot.start(TOKEN)
