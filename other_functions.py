@@ -9,13 +9,13 @@ method = cv2.TM_SQDIFF
 
 
 def press_title(requested_title):
-        if requested_title == "duke":
+        if requested_title == "Duke":
             tap(520, 395)
-        elif requested_title == "architect":
+        elif requested_title == "Architect":
             tap(755, 395)
-        elif requested_title == "justice":
+        elif requested_title == "Justice":
             tap(295, 395)
-        elif requested_title == "scientist":
+        elif requested_title == "Scientist":
             tap(982, 395)
         else:
             print("Error")
@@ -29,13 +29,13 @@ def lk(kingdom_type):
         tap(450, 150)
 
 def timer(requested_title):
-        if requested_title == "duke":
+        if requested_title == "Duke":
             Thread(target= duke).start()
-        elif requested_title == "architect":
+        elif requested_title == "Architect":
             Thread(target= architect).start()
-        elif requested_title == "justice":
+        elif requested_title == "Justice":
             Thread(target= justice).start()
-        elif requested_title == "scientist":
+        elif requested_title == "Scientist":
             Thread(target= scientist).start()
         else:
             print("Error")     

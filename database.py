@@ -32,8 +32,13 @@ class Player(Base):
 def check_database_has_entries():
     count = session.query(Player).count()
     if count > 0:
-        print("The database has entries.")
         return True
     else:
-        print("The database is empty.")
+        return False
+
+def check_if_title_in_database(requested_title):
+    count = session.query(Player).filter_by(title = requested_title)
+    if count > 0:
+        return True
+    else:
         return False
