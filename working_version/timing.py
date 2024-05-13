@@ -1,8 +1,8 @@
 import time
-import Duke
-import Scientist
-import Justice
-import Architect
+import duke
+import scientist
+import justice
+import architect
 from database import check_database_has_entries
 from database import first_player_title
 from running_script import check_script_running
@@ -15,19 +15,19 @@ while i < 6:
     print (players)
     if players == True:
         if first_player_title() == 'Duke':
-              Duke.run()
+              duke.run()
               print("Duke is now running")
 
         elif first_player_title() == 'Scientist':
-              Scientist.run()
+              scientist.run()
               print("Scientist is now running")
 
         elif first_player_title() ==  'Justice':
-               Justice.run()
+               justice.run()
                print("Justice is now running")
 
         else:
-               Architect.run()
+               architect.run()
                print("Architect is now running")
     else:
           print ('repeating....')
