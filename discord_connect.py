@@ -1,6 +1,6 @@
 from interactions import Client, Intents, OptionType, SlashContext, SlashCommandChoice, slash_option, slash_command
 from database import Player, session
-import main_algorythm
+from main_algorythm import main_algorythm
 
 
 
@@ -22,7 +22,7 @@ async def on_command_error(ctx, error):
 bot.on_command_error = on_command_error
 
 
-
+#command structure
 @slash_command(name="title")
 @slash_option(
     name="title",
@@ -59,6 +59,8 @@ bot.on_command_error = on_command_error
     opt_type=OptionType.INTEGER
 )
 
+
+#acts when the command is run
 async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int,  y_coordinate: int):
 
 
@@ -88,7 +90,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     session.commit()
     print ('Successfully added to database')
     await ctx.send(f"Title '{title.title()}' assigned to @{ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
-    main_algorythm.main_algorythm()
+    main_algorythm()#start the algo that gives the titles
 
 
 bot.start(TOKEN)

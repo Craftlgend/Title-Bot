@@ -4,9 +4,9 @@ import general_script
 from time import sleep
 
 
-async def main_algorythm():
+async def main_algorythm():  #started when a title is requested
     while check_database_has_entries() == True:
-        if path.isfile("duke.pid") == False and check_if_title_in_database("Duke") == True:
+        if path.isfile("duke.pid") == False and check_if_title_in_database("Duke") == True:  #checks if the title is running and if the player is in database
             general_script.run("Duke")
         elif path.isfile("architect.pid") == False and check_if_title_in_database("Architect") == True:
             general_script.run("Architect")

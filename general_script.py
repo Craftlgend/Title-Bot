@@ -50,4 +50,4 @@ def run(requested_title):
         remove('screenshot.png')   #delete the screenshop
         session.delete(next_player)  #delete player from waitlist
         session.commit()  #submit to database
-        timer(requested_title)
+        timer(requested_title)  #start the timer for the title

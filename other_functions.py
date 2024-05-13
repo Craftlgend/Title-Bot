@@ -1,13 +1,13 @@
 from adb import tap
 from time import sleep
-import cv2
+from cv2 import imread, matchTemplate, minMaxLoc, TM_SQDIFF
 from threading import Thread
 from os import remove
 
-method = cv2.TM_SQDIFF
+method = TM_SQDIFF
 
 
-
+#presses on the title that was requested
 def press_title(requested_title):
         if requested_title == "Duke":
             tap(520, 395)
@@ -20,6 +20,7 @@ def press_title(requested_title):
         else:
             print("Error")
 
+#types the kingdom if requested
 def lk(kingdom_type):
     if kingdom_type == 'lk':
         tap(450, 150)
@@ -28,6 +29,7 @@ def lk(kingdom_type):
         sleep(.8)
         tap(450, 150)
 
+#starts the timers for the titles
 def timer(requested_title):
         if requested_title == "Duke":
             Thread(target= duke).start()
@@ -59,7 +61,7 @@ def scientist():
      
 #picture recognition
 def picture_recognition(template, picture):
-        screenshot = cv2.imread(picture)
-        result = cv2.matchTemplate(screenshot, template, method)
-        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+        screenshot = imread(picture)
+        result = matchTemplate(screenshot, template, method)
+        min_val, max_val, min_loc, max_loc = minMaxLoc(result)
         return min_loc
