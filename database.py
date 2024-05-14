@@ -37,7 +37,7 @@ def check_database_has_entries():
         return False
 
 def check_if_title_in_database(requested_title):
-    count = session.query(Player).filter_by(title = requested_title)
+    count = session.query(Player).filter_by(title = requested_title).count()
     if count > 0:
         return True
     else:

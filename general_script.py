@@ -39,7 +39,7 @@ def run(requested_title):
         sleep(.8)
         screenshot()  #make screenshot
         sleep(1)
-        coords = picture_recognition(template, 'screenshot.png')  #recognize the title-icon
+        coords = picture_recognition(template, 'screenshot.png', discord_name)  #recognize the title-icon
         press_x =(coords[0]+20)
         press_y = (coords[1]+20)
         tap(press_x, press_y)  #press on title-icon

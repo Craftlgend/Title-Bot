@@ -1,6 +1,7 @@
 from interactions import Client, Intents, OptionType, SlashContext, SlashCommandChoice, slash_option, slash_command
 from database import Player, session
-from main_algorythm import main_algorythm
+from algorythm import main_algorythm
+from threading import Thread
 
 
 
@@ -90,8 +91,11 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     session.commit()
     print ('Successfully added to database')
     await ctx.send(f"Title '{title.title()}' assigned to @{ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
-    main_algorythm()#start the algo that gives the titles
-
+    await main_algorythm() #start the algo that gives the titles
+#not working
+async def send_response(player_name):
+    user = await bot.fetch_user(player_name)
+    await user.send(f"@{player_name} You gave wrong coordinates. Please request the title again with the right coordinates.")
 
 bot.start(TOKEN)
 

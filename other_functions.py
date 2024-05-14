@@ -4,6 +4,7 @@ from cv2 import imread, matchTemplate, minMaxLoc, TM_SQDIFF
 from threading import Thread
 from os import remove
 
+
 method = TM_SQDIFF
 
 
@@ -60,8 +61,11 @@ def Scientist():
      remove("Scientist.pid")
      
 #picture recognition
-def picture_recognition(template, picture):
+def picture_recognition(template, picture, discord_name):
         screenshot = imread(picture)
         result = matchTemplate(screenshot, template, method)
         min_val, max_val, min_loc, max_loc = minMaxLoc(result)
-        return min_loc
+        threshhold = 10e-6
+        if min_val <= threshhold:
+             tap(min_loc[0]+20, min_loc[1]+20) 
+        else: #needs to activate the bot and text something
