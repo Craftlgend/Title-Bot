@@ -20,7 +20,7 @@ async def on_command_error(ctx, error):
         print ('error')
         return
 
-bot.on_command_error = on_command_error
+bot.on_error = on_command_error
 
 
 #command structure
@@ -91,11 +91,8 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     session.commit()
     print ('Successfully added to database')
     await ctx.send(f"Title '{title.title()}' assigned to @{ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
-    await main_algorythm() #start the algo that gives the titles
-#not working
-async def send_response(player_name):
-    user = await bot.fetch_user(player_name)
-    await user.send(f"@{player_name} You gave wrong coordinates. Please request the title again with the right coordinates.")
+    main_algorythm() #start the algo that gives the titles
+
 
 bot.start(TOKEN)
 
