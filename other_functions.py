@@ -3,7 +3,7 @@ from time import sleep
 from cv2 import imread, matchTemplate, minMaxLoc, TM_SQDIFF
 from threading import Thread
 from os import remove
-
+from webhook import send
 
 method = TM_SQDIFF
 
@@ -68,4 +68,5 @@ def picture_recognition(template, picture, discord_name):
         threshhold = 10e-6
         if min_val <= threshhold:
              tap(min_loc[0]+20, min_loc[1]+20) 
-        else: #needs to activate the bot and text something
+        else:
+             send(f"{discord_name} You were given the requested title")
