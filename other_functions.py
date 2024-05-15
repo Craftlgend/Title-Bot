@@ -67,6 +67,7 @@ def picture_recognition(template, picture, discord_name):
         min_val, max_val, min_loc, max_loc = minMaxLoc(result)
         threshhold = 10e-6
         if min_val <= threshhold:
-             tap(min_loc[0]+20, min_loc[1]+20) 
+             tap(min_loc[0]+20, min_loc[1]+20)
+             send(f"{discord_name} You were successfully given the title.")
         else:
-             send(f"{discord_name} You were given the requested title")
+             send(f"{discord_name} You gave the wrong coordinates, there is no city at the requested location.", picture)
