@@ -30,6 +30,7 @@ def lk(kingdom_type):
         input("S21161")
         sleep(.8)
         tap(450, 150)
+        return True
 
 #starts the timers for the titles
 def timer(requested_title):
@@ -76,3 +77,4 @@ def picture_recognition(template, picture, discord_name, title):
              send(f"{discord_name} You were successfully given the title.")
         else:
              send(f"{discord_name} You gave the wrong coordinates, there is no city at the requested location.")
+             return False

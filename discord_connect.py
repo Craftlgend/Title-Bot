@@ -93,7 +93,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     print ('Successfully added to database')
     await ctx.send(f"Title '{title.title()}' assigned to {ctx.author.mention} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
     if path.isfile("Running.pid") == False:
-        main_algorythm() #start the algo that gives the titles
+        Thread(target=main_algorythm).start() #start the algo that gives the titles
 
 
 bot.start(TOKEN)

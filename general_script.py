@@ -21,7 +21,7 @@ def run(requested_title):
 
         tap(265, 20)  #open the search menu
         sleep(.8)
-        lk(kingdom_type)  #choose the right kingdom
+        wait = lk(kingdom_type)  #choose the right kingdom
         sleep(.8)
         tap(640, 140)  #input x-coordinate
         sleep(.8)
@@ -34,13 +34,17 @@ def run(requested_title):
         sleep(.3)
         tap(885, 140) #start search
         tap(885, 140)
-        sleep(1)  #wait for map to load
+        if wait == True:
+            sleep(8)
+        else:
+            sleep(1)  #wait for map to load
         tap(640, 360)  #select city
         sleep(.8)
         screenshot()  #make screenshot
         sleep(1)
-        picture_recognition(template, 'screenshot.png', discord_name, next_player.title)  #recognize the title-icon and press on it
+        worked = picture_recognition(template, 'screenshot.png', discord_name, next_player.title)  #recognize the title-icon and press on it
         remove('screenshot.png')   #delete the screenshop
         session.delete(next_player)  #delete player from waitlist
         session.commit()  #submit to database
-        timer(requested_title)  #start the timer for the title
+        if worked !=False:
+            timer(requested_title)  #start the timer for the title
