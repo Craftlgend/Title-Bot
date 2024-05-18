@@ -22,6 +22,9 @@ def input(str):
 
 def screenshot():
     run('adb exec-out screencap -p > screenshot.png', stdout=PIPE, shell=True)
+
+def keyevent(keyevent):
+    device.shell(f"input keyevent {keyevent}")
     
 
 

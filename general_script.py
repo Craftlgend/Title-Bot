@@ -14,12 +14,12 @@ def run(requested_title):
     if next_player == None:
         exit
     else:
-        discord_name = next_player.discord_name
+        discord_name = next_player.discord_id
         x_coord = next_player.x_coord
         y_coord = next_player.y_coord
         kingdom_type = next_player.kingdom_type
 
-        tap(400, 20)  #open the search menu
+        tap(265, 20)  #open the search menu
         sleep(.8)
         lk(kingdom_type)  #choose the right kingdom
         sleep(.8)
@@ -39,14 +39,7 @@ def run(requested_title):
         sleep(.8)
         screenshot()  #make screenshot
         sleep(1)
-        coords = picture_recognition(template, 'screenshot.png', discord_name)  #recognize the title-icon
-        press_x =(coords[0]+20)
-        press_y = (coords[1]+20)
-        tap(press_x, press_y)  #press on title-icon
-        sleep(.8)
-        press_title(next_player.title)   #press on correct title
-        sleep(.8)
-        tap(643, 634)    #submit the requested title
+        picture_recognition(template, 'screenshot.png', discord_name, next_player.title)  #recognize the title-icon and press on it
         remove('screenshot.png')   #delete the screenshop
         session.delete(next_player)  #delete player from waitlist
         session.commit()  #submit to database

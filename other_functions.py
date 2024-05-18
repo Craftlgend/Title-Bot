@@ -1,4 +1,4 @@
-from adb import tap
+from adb import tap, input, keyevent
 from time import sleep
 from cv2 import imread, matchTemplate, minMaxLoc, TM_SQDIFF
 from threading import Thread
@@ -26,7 +26,8 @@ def lk(kingdom_type):
     if kingdom_type == 'lk':
         tap(450, 150)
         sleep(.8)
-        input(str("#21161"))
+        keyevent("--press 67 67 67 67")
+        input("21161")
         sleep(.8)
         tap(450, 150)
 
@@ -61,13 +62,17 @@ def Scientist():
      remove("Scientist.pid")
      
 #picture recognition
-def picture_recognition(template, picture, discord_name):
+def picture_recognition(template, picture, discord_name, title):
         screenshot = imread(picture)
         result = matchTemplate(screenshot, template, method)
         min_val, max_val, min_loc, max_loc = minMaxLoc(result)
         threshhold = 10e-6
         if min_val <= threshhold:
              tap(min_loc[0]+20, min_loc[1]+20)
+             sleep(.8)
+             press_title(title)   #press on correct title
+             sleep(.8)
+             tap(643, 634)    #submit the requested title
              send(f"{discord_name} You were successfully given the title.")
         else:
-             send(f"{discord_name} You gave the wrong coordinates, there is no city at the requested location.", picture)
+             send(f"{discord_name} You gave the wrong coordinates, there is no city at the requested location.")

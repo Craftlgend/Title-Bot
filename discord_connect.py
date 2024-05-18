@@ -66,7 +66,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
 
 
     # Check if the player exists in the database
-    player = session.query(Player).filter_by(discord_id=str(ctx.author.id)).first()
+    player = session.query(Player).filter_by(discord_id=str(ctx.author.mention)).first()
     if player:
         # If the player exists, update their data
         player.discord_name = str(ctx.author)
@@ -78,7 +78,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     else:
         # If the player doesn't exist, create a new record
         new_player = Player(
-            discord_id=str(ctx.author.id),
+            discord_id=str(ctx.author.mention),
             discord_name=str(ctx.author),
             x_coord=x_coordinate,
             y_coord=y_coordinate,
@@ -90,7 +90,7 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     # Commit changes to the database
     session.commit()
     print ('Successfully added to database')
-    await ctx.send(f"Title '{title.title()}' assigned to @{ctx.author.display_name} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
+    await ctx.send(f"Title '{title.title()}' assigned to {ctx.author.mention} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
     main_algorythm() #start the algo that gives the titles
 
 
