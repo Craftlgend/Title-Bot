@@ -1,10 +1,11 @@
 from database import check_database_has_entries, check_if_title_in_database
-from os import path
+from os import path, remove
 import general_script
 from time import sleep
 
 
 def main_algorythm():  #started when a title is requested
+    open("Running.pid", "x")
     while check_database_has_entries() == True:
         if path.isfile("Duke.pid") == False and check_if_title_in_database("Duke") == True:  #checks if the title is running and if the player is in database
             general_script.run("Duke")
@@ -17,3 +18,4 @@ def main_algorythm():  #started when a title is requested
         else:
             print("All titles are running, please wait...")
             sleep(10)
+    remove("Running.pid")

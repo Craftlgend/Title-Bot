@@ -2,6 +2,7 @@ from interactions import Client, Intents, OptionType, SlashContext, SlashCommand
 from database import Player, session
 from algorythm import main_algorythm
 from threading import Thread
+from os import path
 
 
 
@@ -91,7 +92,8 @@ async def title(ctx: SlashContext, title: str, kingdom: str, x_coordinate: int, 
     session.commit()
     print ('Successfully added to database')
     await ctx.send(f"Title '{title.title()}' assigned to {ctx.author.mention} at coordinates ({x_coordinate}, {y_coordinate}) in the {kingdom} kingdom.")
-    main_algorythm() #start the algo that gives the titles
+    if path.isfile("Running.pid") == False:
+        main_algorythm() #start the algo that gives the titles
 
 
 bot.start(TOKEN)
