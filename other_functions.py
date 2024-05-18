@@ -27,7 +27,7 @@ def lk(kingdom_type):
         tap(450, 150)
         sleep(.8)
         keyevent("--press 67 67 67 67")
-        input("21161")
+        input("S21161")
         sleep(.8)
         tap(450, 150)
 
